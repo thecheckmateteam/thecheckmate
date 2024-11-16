@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán qua Mã QR</title>
+    <style>
+        /* Phong cách cơ bản cho phần thanh toán */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+        }
+
+        .payment-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .payment-container h2 {
+            color: #0081fa;
+            margin-bottom: 20px;
+        }
+
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+
+        .instructions {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .btn-back {
+            background-color: #0097a7;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .btn-back:hover {
+            background-color: #0097a7;
+        }
+    </style>
+</head>
+<body>
+
+<div class="payment-container">
+    <h2>Thanh Toán qua Mã QR</h2>
+    <img src="Image/qrcode-removebg-preview.png" alt="QR Code" class="qr-code">
+    <p>MB BANK: VU NGUYEN HUNG</p>
+    <p class="instructions">Vui lòng quét mã QR bằng ứng dụng ngân hàng hoặc ví điện tử của bạn để thanh toán.</p>
+    <a href="Home.html" class="btn-back">Quay lại trang chủ</a>
+</div>
+
+</body>
+</html>
