@@ -1,288 +1,214 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS2 Server</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <style>
-
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: url('https://esports-news.co.uk/wp-content/uploads/2023/03/cs2-counter-strike-2-768x291.jpg');
-            color: #ffffff;
-        }
-
-        header {
-            background: #43b7fa;
-            padding: 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #ffffff;
-            margin: 0;
-        }
-
-        .nav-logo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-        }
-
-        .navbar-logo {
-            width: 120px;
-            margin: 0 15px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        .card {
-            background-color: #d5d5d5;
-            border: none;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        .card-header {
-            background-color: #43b7fa;
-            border-bottom: none;
-        }
-
-        .table th, .table td {
-            color: #000;
-            vertical-align: middle;
-        }
-
-        .section-title {
-            text-align: center;
-            color: #ffcc00;
-        }
-
-        .link-button {
-            display: inline-block;
-            padding: 5px 10px;
-            font-size: 16px;
-            background-color: #ffaa00;
-            border-radius: 5px;
-            color: #fff;
-            text-align: center;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .link-button:hover {
-            background-color: #ffcc00;
-        }
-
-        footer {
-            background: #1a1a1a;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-
-        .connect-btn {
-            background-color: #28a745;
-            color: white;
-            padding: 5px 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .connect-btn.offline {
-            background-color: #dc3545;
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-
-            .navbar-logo {
-                width: 80px;
-            }
-
-            .card {
-                margin: 10px 0;
-            }
-
-            .link-button {
-                padding: 8px 15px;
-            }
-        }
-    </style>
+    <title>THE CHECKMATE</title>
+    
 </head>
 <body>
-
-<header>
-    <div class="nav-logo">
-        <a href="#"><img src="img/logo.png" class="navbar-logo logo-light" alt="logo"></a>
-        <h1>THE CHECKMATE SERVER CS2</h1>
-        <a href="#"><img src="img/logo.png" class="navbar-logo logo-light" alt="logo"></a>
-    </div>
-</header>
-
-<main>
-    <div class="container">
-
-        <section>
-            <div class="card">
-                <div class="card-header text-center py-3">
-                    <h5><strong>Servers</strong></h5>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Server</th>
-                                    <th>Status</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody id="serverList">
-                                <tr>
-                                    <td>#1 | PvP 5v5 | by The Checkmate </td>
-                                    <td id="server-name1">password</td>
-                                    
-                                    <td><button class="connect-btn" onclick="openModal('Server 1')">Connect</button></td>
-                                </tr>
-                                <tr>
-                                    <td>#2 | Retake | by The Checkmate </td>
-                                    <td id="server-name2"></td>
-                                    
-                                    <td><button class="connect-btn" onclick="openModal('Server 2')">Connect</button></td>
-                                </tr>
-                                <tr>
-                                    <td>#3 | PvP 1v1 | by The Checkmate </td>
-                                    <td id="server-name3"></td>
-                                    
-                                    <td><button class="connect-btn" onclick="openModal('Server 3')">Connect</button></td>
-                                </tr>
-                                <tr>
-                                    <td>#4 | PvP 5v5 | by The Checkmate </td>
-                                    <td id="server-name4">password</td>
-                                    
-                                    <td><button class="connect-btn" onclick="openModal('Server 4')">Connect</button></td>
-                                </tr>
-                               <tr>
-                                    <td>#5 | PvP 5v5 | by The Checkmate </td>
-                                    <td id="server-name5">password</td>
-                                    <td><button class="connect-btn" onclick="openModal('Server 5')">Connect</button></td>
-                              </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section>
-            <div class="card">
-                <div class="card-header text-center py-3">
-                    <h5><strong>ModSkins & Server Renting</strong></h5>
-                </div>
-                <div class="card-body">
-                    <table class="table table-hover">
-                        <tbody>
-                            <tr>
-                                <td>ModSkins</td>
-                                <td><a href="http://modskin.thecheckmate.xyz:27279/" class="link-button">SKIN CHANGER</a></td>
-                            </tr>
-                            <tr>
-                                <td>Rent Server</td>
-                                <td><a href="https://www.facebook.com/nguyenheng2707" class="link-button">Renting</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-    </div>
-</main>
-
-<footer>
-    <p>&copy; 2024 <a href="https://fb.me/menjmoi" target="_blank">The Checkmate Server</a></p>
-</footer>
-
-
-<script>
-    let currentServer = ''; 
-    function openModal(serverName) {
-        currentServer = serverName;
-        Swal.fire({
-            icon: 'question',
-            title: `Vui lòng nhập mật khẩu cho ${serverName}`,
-            input: 'password',
-            inputPlaceholder: 'Submit nếu trạng thái sever đang unlock',
-            showCancelButton: true,
-            confirmButtonText: 'Submit',
-            showLoaderOnConfirm: true,
-            preConfirm: (password) => {
-                return new Promise((resolve) => {
-                    setTimeout(() => {
-                        resolve(validatePassword(password));
-                    }, 1000);
-                });
-            },
-            allowOutsideClick: () => !Swal.isLoading()
-        });
-    }
-
-    function validatePassword(password) {
-        const passwords = {
-            'Server 1': '123456',
-            'Server 2': '',
-            'Server 3': '',
-            'Server 4': '1234567',
-            'Server 5': '1234567'
-        };
-
-        const serverAddresses = {
-            'Server 1': 'steam://connect/160.25.85.100:27013',
-            'Server 2': 'steam://connect/160.25.85.100:27017',
-            'Server 3': 'steam://connect/160.25.85.100:27019',
-            'Server 4': 'steam://connect/160.25.85.100:27021', 
-            'Server 5': 'steam://connect/160.25.85.100:27023'
-        };
-
-        if (password === passwords[currentServer]) {
-    Swal.fire({
-        title: 'Thành công!',
-        text: 'Vui lòng ấn vào ô mở steam để tiếp tục',
-        icon: 'success',
-        confirmButtonText: 'OK'
-    }).then(() => {
-        window.location.href = serverAddresses[currentServer];
-    });
-} else {
-    Swal.fire({
-        title: 'Lỗi!',
-        text: 'Mật khẩu sai!',
-        icon: 'error',
-        confirmButtonText: 'OK'
-    });
+<style>
+    /* Phong cách chung */
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, sans-serif;
+    transition: opacity 1s ease
+}
+.fade-out {
+    opacity: 0;
 }
 
-    }
-</script>
+/* Phong cách cho màn hình Welcome */
+.welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #e0f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+    animation: zoomIn 1.5s ease forwards, fadeOut 1s ease 2s forwards;
+}
+.welcome-container {
+  text-align: center;
+  background-color: #e0f7fa; /* Adjust background color if needed */
+  padding: 50px;
+}
 
+.welcome-content {
+    text-align: center;
+    color: #0081fa;
+    transform: scale(0.8);
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.welcome-content h1 {
+    font-size: 64px;
+    margin-bottom: 10px;
+}
+
+.welcome-content p {
+    font-size: 24px;
+    margin-top: 0;
+}
+.logo {
+  margin-left: 20px;
+  width: 500px; /* Adjust the size of the logo */
+  height: auto;
+}
+.fixed-bottom-left {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 250px; /* Điều chỉnh kích thước ảnh theo ý bạn */
+    height: auto;
+    z-index: 1; /* Đảm bảo ảnh nằm trên nền */
+}
+.fixed-bottom-right {
+    position: fixed;
+    bottom: 0;
+    right: 0; /* Đặt giá trị là 0 để sát với cạnh phải */
+    width: 250px; /* Điều chỉnh kích thước ảnh theo ý muốn */
+    height: auto;
+    z-index: 1; /* Đảm bảo ảnh nằm trên nền */
+    margin-right: 0px; /* Loại bỏ mọi khoảng cách */
+}
+
+/* Hiệu ứng zoom và mờ dần */
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+}
+
+/* Phong cách cho nội dung trang Home */
+.container {
+    display: none;
+    background-image: url('Image/vecteezy_abstract-gradient-pastel-blue-and-purple-background-neon_8617161-1.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: fadeInHome 1s ease forwards;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 10px 100px;
+    background-color: #00bcd4;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+    border-radius: 10px;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+}
+.center-content h1 {
+    font-size: 100px;
+    color: #0081fa;
+    margin-bottom: 20px;
+}
+
+@keyframes fadeInHome {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+</style>
+<!-- Màn hình Welcome -->
+<div class="welcome-screen" id="welcomeScreen">
+    <div class="welcome-content">
+        <h1>TEAM CHECKMATE</h1>
+        <p>Welcome</p>
+        <img src="Image/Logo_Thecheck_Mate-01.png" alt="Team CheckMate Logo" class="logo">
+    </div>
+</div>
+
+<!-- Nội dung Trang Home -->
+<div class="container" id="homeContent" style="display: none;">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="http://modskin.thecheckmate.xyz:27275/" target="_blank">Modskin</a></li>
+                <li><a href="/Server">Server</a></li>
+                <li><a href="/Thue">Thuê</a></li>
+                <li><a href="/HoTro">Hỗ Trợ</a></li>
+                <li><a href="/ThanhToan">Donate</a></li>
+            </ul>
+        </nav>
+        <div class="center-content">
+            <h1>TEAM CHECKMATE</h1>
+        </div>
+        <img src="Image/image-removebg-preview.png" alt="Image" class="fixed-bottom-left">
+        <img src="Image/image-removebg-preview1.png" alt="Image" class="fixed-bottom-right">
+    </header>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const welcomeScreen = document.getElementById("welcomeScreen");
+    const homeContent = document.getElementById("homeContent");
+
+    // Sau 3 giây, ẩn màn hình Welcome và hiển thị trang Home
+    setTimeout(() => {
+        welcomeScreen.style.display = "none"; // Ẩn trang Welcome
+        homeContent.style.display = "flex";  // Hiển thị trang Home với flex layout
+    }, 3000); // Thời gian chờ 3 giây để hiển thị Welcome
+});
+     document.getElementById("serverLink").addEventListener("click", function(event) {
+            event.preventDefault(); // Ngăn hành động mặc định
+            document.body.classList.add("fade-out"); // Thêm lớp fade-out
+            setTimeout(function() {
+                window.location.href = "Server.html"; // Chuyển hướng sau khi hiệu ứng hoàn thành
+            }, 1000); // Thời gian chờ hiệu ứng fade-out
+        });
+
+</script>
 </body>
 </html>
